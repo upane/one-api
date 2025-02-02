@@ -15,6 +15,8 @@ import (
 	"github.com/songquanpeng/one-api/relay/adaptor/ollama"
 	"github.com/songquanpeng/one-api/relay/adaptor/openai"
 	"github.com/songquanpeng/one-api/relay/adaptor/palm"
+	"github.com/songquanpeng/one-api/relay/adaptor/proxy"
+	"github.com/songquanpeng/one-api/relay/adaptor/replicate"
 	"github.com/songquanpeng/one-api/relay/adaptor/tencent"
 	"github.com/songquanpeng/one-api/relay/adaptor/vertexai"
 	"github.com/songquanpeng/one-api/relay/adaptor/xunfei"
@@ -58,6 +60,10 @@ func GetAdaptor(apiType int) adaptor.Adaptor {
 		return &deepl.Adaptor{}
 	case apitype.VertexAI:
 		return &vertexai.Adaptor{}
+	case apitype.Proxy:
+		return &proxy.Adaptor{}
+	case apitype.Replicate:
+		return &replicate.Adaptor{}
 	}
 	return nil
 }
